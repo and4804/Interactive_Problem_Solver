@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Problem Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Interactive Problem Solver</h1>
+            <p class="description">Your AI-powered guide to step-by-step problem-solving.</p>
+        </header>
+        
+        <div class="content">
+            <input type="text" id="user-problem" placeholder="Enter your problem here">
+            <div class="buttons">
+                <button onclick="submitProblem()">Submit Problem</button>
+                <button onclick="showHint()">Hint</button>
+                <button onclick="nextStep()">Next Step</button>
+                <button onclick="previousStep()">Previous Step</button>
+                <button onclick="seeFullSolution()">See the Full Solution</button>
+            </div>
+            <p id="problem-step"></p>
+            <p id="feedback"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
