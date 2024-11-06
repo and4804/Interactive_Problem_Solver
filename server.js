@@ -33,18 +33,18 @@ app.post('/solve-problem', async (req, res) => {
             model: "gpt-3.5-turbo",
             messages: [{ role: "user", content: problem }],
             temperature: 0.5,
-            max_tokens: 150, // Adjusted for more room in the response
+            max_tokens: 100,
         });
-
+    
         // Parse and send the response back
         const solution = response.choices[0].message.content;
-        const steps = solution.split("\n").map(step => step.trim()).filter(step => step); // Clean up steps
-
+        const steps = solution.split("\n"); // Split into steps if necessary
         res.json({ steps });
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Error solving the problem' });
+        console.error('Error:', error); // Log the error
+        res.status(500).send({ error: 'Error solving the problem', details: error.message });
     }
+    
 });
 
 // Start the server
